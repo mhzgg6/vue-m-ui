@@ -1,0 +1,8 @@
+@import './mixins/mixins.scss';
+@import './common/var.scss';
+
+@include b(button) {
+  cursor: pointer;
+
+  @include commonColor($--color-black);
+}

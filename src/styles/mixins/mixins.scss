@@ -1,0 +1,32 @@
+@import '../common/var.scss';
+@import '../config/index.scss';
+
+@mixin commonColor($color) {
+  @if $color== 'info' {
+    $color: $--color-info;
+  }
+
+  @if $color== 'success' {
+    $color: $--color-success;
+  }
+
+  @if $color== 'warning' {
+    $color: $--color-warning;
+  }
+
+  @if $color== 'danger' {
+    $color: $--color-danger;
+  }
+
+  color: $color;
+  border: 1px solid $color;
+}
+
+@mixin b($block) {
+  //  !global 与 default 相对立，优先于默认编译
+  $B: $namespace + '-' + $block !global;
+
+  .#{$B}{
+    @content;
+  }
+}

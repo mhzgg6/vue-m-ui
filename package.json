@@ -1,10 +1,22 @@
 {
-  "name": "my-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@mhzgg6/vue-m-ui",
+  "version": "0.1.2",
+  "private": false,
+  "main": "lib/m-ui.umd.min.js",
+  "description": "an UI based on Vue.js",
+  "keywords": [
+    "component",
+    "components",
+    "design",
+    "vue",
+    "vue-component",
+    "ui",
+    "Button",
+    "mhz"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name m-ui --dest lib src/components/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

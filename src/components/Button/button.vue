@@ -2,10 +2,15 @@
   <button 
     class="mhz-button"
     :class="[
-      type ? 'mhz-button--' + type : ''
+      sizeType,
+      type ? 'mhz-button--' + type : '',
+      {
+        'is-disabled': disabled
+      }
     ]"
+    :type="htmlType"
     >
-    ssss
+    <slot></slot>
   </button>
 </template>
 
@@ -13,7 +18,13 @@
 export default {
   name: 'mButton',
   props: {
-    type: String
+    type: String,
+    htmlType: String,   //  设置 button 原生的 type 值
+    disabled: Boolean,
+    size: {
+      type: String,
+      default: 'normal'
+    }
   },
   components: {},
   data() {
@@ -21,7 +32,13 @@ export default {
     };
   },
   watch: {},
-  computed: {},
+  computed: {
+    sizeType() {
+      const sizeList = ['small', 'normal', 'big'];
+      if (sizeList.includes(this.size)) return 'size-' + this.size;
+      return 'size-normal';
+    }
+  },
   created() {},
   mounted() {},
   methods: {},

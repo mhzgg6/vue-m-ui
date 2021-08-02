@@ -18,8 +18,21 @@
     $color: $--color-danger;
   }
 
+  @if $color== 'disabled' {
+    cursor: not-allowed;
+    $color: $--color-disabled;
+  }
+
   color: $color;
   border: 1px solid $color;
+}
+
+@mixin commonType($name) {
+  @each $type in (info, success, warning, danger) {
+    .#{$name}#{$type} {
+      @include commonColor($type);
+    }
+  }
 }
 
 @mixin b($block) {
@@ -28,5 +41,13 @@
 
   .#{$B}{
     @content;
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
   }
 }

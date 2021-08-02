@@ -1,5 +1,4 @@
 import mButton from "./Button/index"
-console.log(mButton);
 //  总的样式
 import '../styles/index.scss'
 

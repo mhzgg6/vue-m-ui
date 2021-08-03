@@ -1,16 +1,29 @@
 <template>
   <div class="wrapper">
-    <h1>不同颜色</h1>
+    <!-- <svg class="icon">
+      <use xlink:href="#icon-lanqiu"></use>
+    </svg> -->
+    <h1>button</h1>
+    <h3>不同颜色</h3>
     <m-button>default</m-button>
     <m-button type="info">info</m-button>
     <m-button type="success">success</m-button>
     <m-button type="warning">warning</m-button>
     <m-button type="danger">danger</m-button>
     <m-button disabled>disabled</m-button>
-    <h1>不同大小</h1>
+    <h3>不同大小</h3>
     <m-button size="small">small</m-button>
     <m-button size="normal">normal</m-button>
     <m-button size="big">big</m-button>
+    <h3>设置图标、loading</h3>
+    <m-button type="success" iconColor="red" :loading="true" icon="jiazai">success</m-button>
+    <m-button type="success" disabled iconColor="red" :loading="true" icon="jiazai">success</m-button>
+    <m-button type="warning" icon="aixin" iconColor="red">warning</m-button>
+    <h1>Icon</h1>
+    1.<m-icon name="jiazai" :spin="true"></m-icon><br />
+    2.<m-icon name="lanqiu"></m-icon><br />
+    3.<m-icon name="aixin"></m-icon><br />
+    4.<m-icon name="z-like"></m-icon><br />
   </div>
 </template>
 

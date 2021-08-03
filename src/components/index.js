@@ -1,9 +1,11 @@
+import mIcon from "./Icon/index"
 import mButton from "./Button/index"
 //  总的样式
 import '../styles/index.scss'
 
 //  组建列表
 const components = [
+  mIcon,
   mButton
 ]
 
@@ -24,5 +26,6 @@ export default {
   //  导出的对象必须具有 install，才能被 Vue.use() 方法安装
   install,
   //  以下是具体的组件列表
+  mIcon,
   mButton
 }

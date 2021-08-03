@@ -1,4 +1,4 @@
-import Button from './button.vue'
+import Button from './main/button.vue'
 
 //  为组件提供 install 安装方法，供按需引入
 Button.install = function (Vue) {

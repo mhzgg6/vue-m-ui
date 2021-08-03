@@ -3,6 +3,8 @@
 
 @include b(button) {
   cursor: pointer;
+  user-select: none;
+  text-align: center;
   background-color: white;
   outline: 0;
   border-radius: 4px;

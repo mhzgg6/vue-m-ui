@@ -4,6 +4,7 @@
     >
     <div class="message-main" v-for="item in msgList" :key="item.name">
       <div class="message-content">
+        <m-icon name="aixin"></m-icon>
         {{item.content}}
       </div>
     </div>
@@ -11,14 +12,17 @@
 </template>
 
 <script>
+import mIcon from "../../../components/Icon/main/icon.vue"
+
 let seed = 0;
 function getUuid() {
   return 'alert' + (seed ++);
 }
 
 export default {
+  name: 'mMessage',
   props: {},
-  components: {},
+  components: { mIcon },
   data() {
     return {
       msgList: []
@@ -29,9 +33,10 @@ export default {
   created() {},
   mounted() {},
   methods: {
-    add(msg) {
+    add(type, msg) {
       const name = getUuid();
       let _msg = Object.assign({
+        type,
         name
       }, msg)
 

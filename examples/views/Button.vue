@@ -24,11 +24,12 @@
     2.<m-icon name="lanqiu"></m-icon><br />
     3.<m-icon name="aixin"></m-icon><br />
     4.<m-icon name="z-like"></m-icon><br />
+    <h1>消息提示</h1>
+    <button @click="showMsg">点击出现消息 弹框！！</button>
   </div>
 </template>
 
 <script>
-
 export default {
   props: {},
   components: {
@@ -39,9 +40,17 @@ export default {
   },
   watch: {},
   computed: {},
-  created() {},
-  mounted() {},
-  methods: {},
+  created() {
+  },
+  mounted() {
+  },
+  methods: {
+    showMsg() {
+      this.$Message.info({
+        content: 'sss'
+      })
+    }
+  },
 };
 </script>
 

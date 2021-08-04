@@ -1,12 +1,16 @@
 import mIcon from "./Icon/index"
 import mButton from "./Button/index"
+// import mMessage from "./Message/index"
+import Message from "./Message/main/message"
+
 //  总的样式
 import '../styles/index.scss'
 
 //  组建列表
 const components = [
   mIcon,
-  mButton
+  mButton,
+  // mMessage
 ]
 
 //  定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件 那么所有的组件都会被祖册
@@ -15,6 +19,8 @@ const install = function (Vue) {
   if (install.installed) return
   //  遍历注册全局组件
   components.map(component => Vue.component(component.name, component))
+
+  Vue.prototype.$Message = Message
 }
 
 //  判断是否是直接引入文件
@@ -27,5 +33,6 @@ export default {
   install,
   //  以下是具体的组件列表
   mIcon,
-  mButton
+  mButton,
+  // mMessage
 }

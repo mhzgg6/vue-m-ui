@@ -4,7 +4,7 @@
     >
     <div class="message-main" v-for="item in msgList" :key="item.name">
       <div class="message-content">
-        <m-icon name="aixin"></m-icon>
+        <m-icon :name="item.icon" :color='item.color'></m-icon>
         {{item.content}}
       </div>
     </div>
@@ -34,9 +34,24 @@ export default {
   mounted() {},
   methods: {
     add(type, msg) {
+      const colors = {
+        info: '#409EFF',
+        success: '#67C23A',
+        warning: '#E6A23C',
+        danger: '#F56C6C',
+      };
+      const icons = {
+        info: 'info-circle',
+        success: 'zhengque',
+        warning: 'jinggao',
+        danger: 'cuowu',
+      };
       const name = getUuid();
+
       let _msg = Object.assign({
         type,
+        color: colors[type],
+        icon: icons[type],
         name
       }, msg)
 

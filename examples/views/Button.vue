@@ -25,7 +25,10 @@
     3.<m-icon name="aixin"></m-icon><br />
     4.<m-icon name="z-like"></m-icon><br />
     <h1>消息提示</h1>
-    <button @click="showMsg">点击出现消息 弹框！！</button>
+    <button @click="showMsg('info')">点击出现消息 info 弹框！！</button>
+    <button @click="showMsg('success')">点击出现消息 success 弹框！！</button>
+    <button @click="showMsg('warning')">点击出现消息 warning 弹框！！</button>
+    <button @click="showMsg('danger')">点击出现消息 danger 弹框！！</button>
   </div>
 </template>
 
@@ -45,9 +48,9 @@ export default {
   mounted() {
   },
   methods: {
-    showMsg() {
-      this.$Message.info({
-        content: 'sss'
+    showMsg(type) {
+      this.$Message[type]({
+        content: '我们都是好孩子 哈哈哈哈哈哈'
       })
     }
   },

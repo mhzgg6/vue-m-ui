@@ -3,14 +3,14 @@
 
 @include b(message) {
   position: fixed;
-  width: 100%;
+  // width: 100%;
   top: 16px;
   left: 0;
   text-align: center;
   pointer-events: none;
   z-index: 99999;
   .message-main{
-    display: inline-block;
+    // display: inline-block;
     padding: 8px 16px;
     background: #fff;
     border-radius: 3px;

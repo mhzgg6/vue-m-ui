@@ -5,6 +5,8 @@ import Message from "./Message/main/message"
 
 //  总的样式
 import '../styles/index.scss'
+//  iconfont
+import '../styles/iconfont/iconfont'
 
 //  组建列表
 const components = [

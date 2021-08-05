@@ -25,10 +25,11 @@
     3.<m-icon name="aixin"></m-icon><br />
     4.<m-icon name="z-like"></m-icon><br />
     <h1>消息提示</h1>
-    <button @click="showMsg('info')">点击出现消息 info 弹框！！</button>
-    <button @click="showMsg('success')">点击出现消息 success 弹框！！</button>
-    <button @click="showMsg('warning')">点击出现消息 warning 弹框！！</button>
-    <button @click="showMsg('danger')">点击出现消息 danger 弹框！！</button>
+    <m-button @click="showMsg('info')">点击</m-button>
+    <m-button @click="showMsg('info')">点击出现消息 info 弹框！！</m-button>
+    <m-button @click="showMsg('success')">点击出现消息 success 弹框！！</m-button>
+    <m-button @click="showMsg('warning')">点击出现消息 warning 弹框！！</m-button>
+    <m-button @click="showMsg('danger')">点击出现消息 danger 弹框！！</m-button>
   </div>
 </template>
 
@@ -61,7 +62,7 @@ export default {
 
 .wrapper{
   button{
-    margin-left: 20px;
+    margin: 5px 0 5px 20px;
   }
 }
 </style>

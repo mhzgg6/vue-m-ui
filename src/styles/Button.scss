@@ -28,7 +28,7 @@
   &:not(.is-disabled) {
     &:active{
       opacity: 0.8;
-      // transform: translateX(2px) translateY(2px) scale(0.9);
+      transform: translateX(2px) translateY(2px) scale(0.95);
     }
     &:hover {
       opacity: 0.8;

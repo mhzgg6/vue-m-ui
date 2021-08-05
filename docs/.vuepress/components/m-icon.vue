@@ -6,20 +6,10 @@
       <div class="component-wrapper-demo">
         1.<m-icon name="jiazai" :spin="true"></m-icon><br />
         2.<m-icon name="lanqiu"></m-icon><br />
-        3.<m-icon name="aixin"></m-icon><br />
+        3.<m-icon name="aixin" color="red"></m-icon><br />
         4.<m-icon name="z-like"></m-icon><br />
       </div>
-      <div class="code-content" style="height: 0;">
-        <div class="code-content-height">
-          <!-- <div class="code-user-desc">
-            组件描述说明
-          </div> -->
-          <pre><code class="vue">{{codeStr}}</code></pre>
-        </div>
-      </div>
-      <div class="lock-code" @click="showCode(4)" ref="xxx">
-        <span class="lock-code-word">{{isShow[4] === false ? '显示代码' : '隐藏代码'}}</span>
-      </div>
+      <code-panel :code="codeStr"></code-panel>
     </div>
 
   </div>
@@ -27,16 +17,19 @@
 
 <script>
 import icon from '../../../src/components/Icon/main/icon.vue'
+import CodePanel from './code-panel.vue'
 import mixin from '../mixin'
 export default {
   props: {},
   mixins: [mixin],
   components: {
-    mIcon: icon
+    mIcon: icon,
+    CodePanel
   },
   data() {
     return {
       codeStr: `
+        /* code */
         <m-icon name="jiazai" :spin="true"></m-icon>
         <m-icon name="lanqiu"></m-icon>
         <m-icon name="aixin"></m-icon>
@@ -47,7 +40,8 @@ export default {
   watch: {},
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+  },
   methods: {},
 };
 </script>

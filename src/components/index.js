@@ -1,7 +1,7 @@
 import mIcon from "./Icon/index"
 import mButton from "./Button/index"
-// import mMessage from "./Message/index"
 import Message from "./Message/main/message"
+// import mMessage from "./Message/index"
 
 //  总的样式
 import '../styles/index.scss'
@@ -26,9 +26,9 @@ const install = function (Vue) {
 }
 
 //  判断是否是直接引入文件
-// if (typeof window !== 'undefined' && window.Vue) {
-//   install(window.Vue)
-// }
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
 
 export default {
   //  导出的对象必须具有 install，才能被 Vue.use() 方法安装

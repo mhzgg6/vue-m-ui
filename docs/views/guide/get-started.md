@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 
 import mui from '@mhzgg6/vue-m-ui'
+import '@mhzgg6/vue-m-ui/lib/m-ui.css'
 Vue.use(mui)
 
 Vue.config.productionTip = false

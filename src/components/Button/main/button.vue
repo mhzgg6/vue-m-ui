@@ -10,6 +10,7 @@
       }
     ]"
     :type="htmlType"
+    @click="$emit('click')"
     >
     <m-icon
       v-if="icon"

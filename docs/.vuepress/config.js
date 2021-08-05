@@ -24,6 +24,8 @@ module.exports = {
         collapsable: true,
         children: [
           'views/components/basic/',
+          'views/components/message/',
+          'views/components/todo/',
         ]
       },
     ]

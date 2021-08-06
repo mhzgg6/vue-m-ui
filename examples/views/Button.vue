@@ -3,6 +3,19 @@
     <!-- <svg class="icon">
       <use xlink:href="#icon-lanqiu"></use>
     </svg> -->
+    <h1>input</h1>
+    <h3>不同大小</h3>
+    <m-input size="big" placeholder="试试水"></m-input>
+    <m-input size="small" placeholder="试试水"></m-input>
+    <m-input v-model="val" placeholder="试试水"></m-input>
+    <div>{{val}}</div>
+    <h3>前后icon   v-model</h3>
+    <m-input v-model="val" placeholder="试试水" beforeIcon="aixin" iconColor='red'></m-input>
+    <m-input v-model="val" placeholder="试试水" afterIcon="aixin"></m-input>
+    <h3>只读</h3>
+    <m-input v-model="val" readonly></m-input>
+    <m-input v-model="val" disabled></m-input>
+
     <h1>button</h1>
     <h3>不同颜色</h3>
     <m-button>default</m-button>
@@ -19,17 +32,21 @@
     <m-button type="success" iconColor="red" :loading="true" icon="jiazai">success</m-button>
     <m-button type="success" disabled iconColor="red" :loading="true" icon="jiazai">success</m-button>
     <m-button type="warning" icon="aixin" iconColor="red">warning</m-button>
+
     <h1>Icon</h1>
     1.<m-icon name="jiazai" :spin="true"></m-icon><br />
     2.<m-icon name="lanqiu"></m-icon><br />
     3.<m-icon name="aixin"></m-icon><br />
     4.<m-icon name="z-like"></m-icon><br />
+
     <h1>消息提示</h1>
     <m-button @click="showMsg('info')">点击</m-button>
     <m-button @click="showMsg('info')">点击出现消息 info 弹框！！</m-button>
     <m-button @click="showMsg('success')">点击出现消息 success 弹框！！</m-button>
     <m-button @click="showMsg('warning')">点击出现消息 warning 弹框！！</m-button>
     <m-button @click="showMsg('danger')">点击出现消息 danger 弹框！！</m-button>
+    <m-button @click="filter">ss</m-button>
+
   </div>
 </template>
 
@@ -40,15 +57,27 @@ export default {
   },
   data() {
     return {
+      val: 'input的值'
     };
   },
   watch: {},
   computed: {},
   created() {
+    
   },
   mounted() {
   },
   methods: {
+    async filter() {
+      let a = await this.loadData();
+      console.log(a);
+    },
+    loadData() {
+      return new Promise((resolve) => {
+        resolve(2)
+        console.log(1);
+      })
+    },
     showMsg(type) {
       this.$Message[type]({
         content: '我们都是好孩子 哈哈哈哈哈哈'
@@ -61,8 +90,13 @@ export default {
 <style lang="scss" scoped>
 
 .wrapper{
+  padding: 20px 50px;
   button{
     margin: 5px 0 5px 20px;
+  }
+
+  .mhz-input{
+    margin: 20px 0;
   }
 }
 </style>

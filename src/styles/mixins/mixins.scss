@@ -51,3 +51,21 @@
     }
   }
 }
+
+@mixin IconPosition($position) {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  @if $position== 'before' {
+    left: 10px;
+  }
+
+  @if $position== 'after' {
+    right: 10px;
+  }
+}

@@ -1,5 +1,6 @@
 import mIcon from "./Icon/index"
 import mButton from "./Button/index"
+import mInput from './Input/index'
 import Message from "./Message/main/message"
 // import mMessage from "./Message/index"
 
@@ -12,6 +13,7 @@ import '../styles/iconfont/iconfont'
 const components = [
   mIcon,
   mButton,
+  mInput,
   // mMessage
 ]
 
@@ -36,5 +38,6 @@ export default {
   //  以下是具体的组件列表
   mIcon,
   mButton,
+  mInput,
   // mMessage
 }

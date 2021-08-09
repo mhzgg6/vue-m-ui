@@ -11,10 +11,23 @@
     <div>{{val}}</div>
     <h3>前后icon   v-model</h3>
     <m-input v-model="val" placeholder="试试水" beforeIcon="aixin" iconColor='red'></m-input>
+    <m-input v-model="val" placeholder="试试水" beforeIcon="aixin" afterIcon="aixin" iconColor='red'></m-input>
     <m-input v-model="val" placeholder="试试水" afterIcon="aixin"></m-input>
     <h3>只读</h3>
     <m-input v-model="val" readonly></m-input>
     <m-input v-model="val" disabled></m-input>
+    <h3>清除</h3>
+    <m-input value="hahah" allow-clear></m-input>
+    <m-input v-model="val1" afterIcon="aixin" allow-clear></m-input>
+    <div>{{val1}}</div>
+    <h3>事件</h3>
+    <div>{{val2}}</div>
+    <m-input v-model="val2" @change="handleChange"></m-input>
+    <m-input value="val2" @change="handleChange"></m-input>
+    <m-input value="val2" @input="handleInput"></m-input>
+
+    <h3>textArea</h3>
+    <m-input type="textarea"></m-input>
 
     <h1>button</h1>
     <h3>不同颜色</h3>
@@ -57,7 +70,9 @@ export default {
   },
   data() {
     return {
-      val: 'input的值'
+      val: 'input的值',
+      val1: 'input1的值',
+      val2: 'input2的值',
     };
   },
   watch: {},
@@ -82,6 +97,12 @@ export default {
       this.$Message[type]({
         content: '我们都是好孩子 哈哈哈哈哈哈'
       })
+    },
+    handleChange(e) {
+      console.log(e, e.target.value)
+    },
+    handleInput(e) {
+      console.log(e)
     }
   },
 };

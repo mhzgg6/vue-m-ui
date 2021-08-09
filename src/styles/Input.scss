@@ -40,7 +40,11 @@
       padding-right: 36px;
     }
 
-    &:not(.is-readonly):not(.is-disabled) {
+    &.is-both-icon{
+      padding-right: 60px;
+    }
+
+    &:not(.is-disabled) {
       &:active,&:hover{
         border-color: $--color-info;
       }
@@ -56,7 +60,12 @@
   
     @include when(disabled) {
       cursor: not-allowed;
+      background-color: $--color-disabled-bg;
     }
+  }
+
+  textarea.#{$B} {
+    padding: 4px 11px;
   }
 
   @include b(input__beforeicon) {
@@ -65,5 +74,14 @@
 
   @include b(input__aftericon) {
     @include IconPosition(after);
+
+    @include b(input__aftericon__close) {
+      cursor: pointer;
+      opacity: 0.5;
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
   }
 }

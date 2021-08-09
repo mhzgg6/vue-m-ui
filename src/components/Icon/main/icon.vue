@@ -6,6 +6,7 @@
       width: iconSize,
       height: iconSize
     }"
+    @click="handClick"
   >
     <svg 
       :style="{fill: iconColor}"
@@ -61,6 +62,10 @@ export default {
   },
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    handClick(event) {
+      this.$emit('click', event);
+    }
+  },
 };
 </script>

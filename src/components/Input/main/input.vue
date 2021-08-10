@@ -14,9 +14,10 @@
         class="mhz-input__inner"
         :class="[
           sizeType,
-          afterIcon && showClear ? 'is-both-icon' : 'is-after-icon',
           {
+            'is-both-icon': afterIcon && showClear,
             'is-before-icon': beforeIcon, 
+            'is-after-icon': afterIcon || showClear, 
             'is-readonly': readonly,
             'is-disabled': disabled
           }
@@ -79,9 +80,11 @@
  *    textarea auotsize 
  */
 import mIcon from '../../Icon/main/icon.vue'
+import Emitter from '../../../mixins/emitter'
 
 export default {
   name: 'mInput',
+  mixins: [ Emitter ],
   props: {
     value: [String, Number],
     size: String,
@@ -133,19 +136,30 @@ export default {
   methods: {
     handleInput(event) {
       const value = event.target.value;
+      const parentName = this.$parent.$options.name || '';
       this.currentValue = value;
       this.$emit('input', value);
+
+      //  暂时解决方案 判断父级是否为 mFormItem 
+      //  当在表单域里面 才触发
+      if (parentName && parentName === 'mFormItem') {
+        this.dispatch('mFormItem', 'on-form-change', value);
+      }
     },
-    handleFocus(event) {
-      this.$emit('focus', event.target.value);
+    handleFocus() {
+      this.$emit('focus', this.currentValue);
     },
-    handleBlur(event) {
-      this.$emit('blur', event.target.value);
+    handleBlur() {
+      const parentName = this.$parent.$options.name || '';
+      this.$emit('blur', this.currentValue);
+      if (parentName && parentName === 'mFormItem') {
+        this.dispatch('mFormItem', 'on-form-blur', this.currentValue);
+      }
     },
     handleChange(event) {
       const value = event.target.value;
       this.currentValue = value;
-      this.$emit('change', event.target.value);
+      this.$emit('change', value);
     },
     clearInput() {
       this.currentValue = '';

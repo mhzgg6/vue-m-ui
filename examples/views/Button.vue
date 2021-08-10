@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <h1>Form</h1>
+
+
     <!-- <svg class="icon">
       <use xlink:href="#icon-lanqiu"></use>
     </svg> -->
@@ -67,6 +70,7 @@
 export default {
   props: {},
   components: {
+
   },
   data() {
     return {
@@ -99,7 +103,7 @@ export default {
       })
     },
     handleChange(e) {
-      console.log(e, e.target.value)
+      console.log(e)
     },
     handleInput(e) {
       console.log(e)

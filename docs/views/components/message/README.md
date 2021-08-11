@@ -4,8 +4,7 @@ title: 'Message 全局提示'
 ---
 
 <ClientOnly>
-  <m-message></m-message>
-
+  <mhz-message></mhz-message>
   <font size=5>Attributes</font>
   | 参数| 说明 | 类型 | 可选值 | 默认值 |
   | :------ | ------ | ------ | ------ | ------ |

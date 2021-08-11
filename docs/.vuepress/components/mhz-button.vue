@@ -45,6 +45,7 @@ import btn from '../../../src/components/Button/main/button.vue'
 import CodePanel from './code-panel.vue'
 import mixin from '../mixin'
 export default {
+  name: 'mhz-button',
   props: {},
   mixins: [mixin],
   components: {
@@ -55,24 +56,30 @@ export default {
     return {
       codeStr1: `
       /* code */
-      <m-button>default</m-button>
-      <m-button type="info">info</m-button>
-      <m-button type="success">success</m-button>
-      <m-button type="warning">warning</m-button>
-      <m-button type="danger">danger</m-button>
-      <m-button disabled>disabled</m-button>
+      <template>
+        <m-button>default</m-button>
+        <m-button type="info">info</m-button>
+        <m-button type="success">success</m-button>
+        <m-button type="warning">warning</m-button>
+        <m-button type="danger">danger</m-button>
+        <m-button disabled>disabled</m-button>
+      <template>
       `.replace(/^s*/gm, '').trim(),
       codeStr2: `
         /* code */
-        <m-button size="small">small</m-button>
-        <m-button size="normal">normal</m-button>
-        <m-button size="big">big</m-button>
+        <template>
+          <m-button size="small">small</m-button>
+          <m-button size="normal">normal</m-button>
+          <m-button size="big">big</m-button>
+        </template>
         `.replace(/^s*/gm, '').trim(),
       codeStr3: `
         /* code */
-        <m-button type="success" iconColor="red" :loading="true" icon="jiazai">success</m-button>
-        <m-button type="success" disabled iconColor="red" :loading="true" icon="jiazai">success</m-button>
-        <m-button type="warning" icon="aixin" iconColor="red">warning</m-button>
+        <template>
+          <m-button type="success" iconColor="red" :loading="true" icon="jiazai">success</m-button>
+          <m-button type="success" disabled iconColor="red" :loading="true" icon="jiazai">success</m-button>
+          <m-button type="warning" icon="aixin" iconColor="red">warning</m-button>
+        </template>
         `.replace(/^s*/gm, '').trim(),
     };
   },

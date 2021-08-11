@@ -1,12 +1,14 @@
 <template>
   <div class="mhz-form-item">
-    <label 
-      v-if="label"
-      :class="{ 'mhz-form-item-label-required': isRequired }"
-      >
-      {{ label }}
-    </label>
-    <div>
+    <div class="mhz-form-item-label">
+      <label 
+        v-if="label"
+        :class="{ 'mhz-form-item-label-required': isRequired }"
+        >
+        {{ label }}
+      </label>
+    </div>
+    <div class="mhz-form-item-wrapper">
       <slot></slot>
       <div 
         v-if="validateState === 'error'"

@@ -19,6 +19,7 @@ import btn from '../../../src/components/Button/main/button.vue'
 import message from '../../../src/components/Message/main/message.js'
 import mixin from '../mixin'
 export default {
+  name: 'mhz-message',
   mixins: [mixin],
   props: {},
   components: {
@@ -28,10 +29,35 @@ export default {
     return {
       codeStr:`
       /* code */
-      <m-button type="info" @click="info">info</m-button>
-      <m-button type="success" @click="success">success</m-button>
-      <m-button type="warning" @click="warning">warning</m-button>
-      <m-button type="danger" @click="danger">danger</m-button>
+      <template>
+        <m-button type="info" @click="info">info</m-button>
+        <m-button type="success" @click="success">success</m-button>
+        <m-button type="warning" @click="warning">warning</m-button>
+        <m-button type="danger" @click="danger">danger</m-button>
+      </template>
+      <script>
+        export default {
+          data() {
+            return {
+              content: '将近的晚风快吹干整条小巷 燃尽的灯光无法再将我们点亮'
+            }
+          },
+          methods: {
+            info() {
+              this.$Message.info({ content })
+            },
+            success() {
+              this.$Message.success({ content })
+            },
+            warning() {
+              this.$Message.warning({ content })
+            },
+            danger() {
+              this.$Message.danger({ content })
+            }
+          },
+        }
+      <\/script>
       `.replace(/^s*/gm, '').trim()
     };
   },

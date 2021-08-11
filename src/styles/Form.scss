@@ -2,6 +2,11 @@
 @import './common/var.scss';
 
 @include b(form) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: $--size-normal;
 
   @include b(form-item) {
     @include b(form-item-label-required) {

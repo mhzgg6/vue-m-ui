@@ -4,7 +4,7 @@ sidebarDepth: 2
 ---
 ## Button按钮
 <ClientOnly>
-  <m-button></m-button>
+  <mhz-button></mhz-button>
   <font size=5>Attributes</font>
   | 参数| 说明 | 类型 | 可选值 | 默认值 |
   | :------ | ------ | ------ | ------ | ------ |
@@ -24,9 +24,11 @@ sidebarDepth: 2
 
 
 
-## Icon按钮
+## Icon图标
+
+
 <ClientOnly>
-  <m-icon></m-icon>
+  <mhz-icon></mhz-icon>
 
   <font size=5>Attributes</font>
   | 参数| 说明 | 类型 | 可选值 | 默认值 |

@@ -44,7 +44,8 @@ export default {
   },
   watch: {},
   computed: {},
-  created() {},
+  created() {
+  },
   mounted() {},
   methods: {
     submit() {

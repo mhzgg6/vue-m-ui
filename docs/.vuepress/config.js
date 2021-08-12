@@ -27,6 +27,7 @@ module.exports = {
           'views/components/input/',
           'views/components/form/',
           'views/components/message/',
+          'views/components/timeline/',
           'views/components/todo/',
         ]
       },

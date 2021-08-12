@@ -1,7 +1,7 @@
 @import '../common/var.scss';
 @import '../config/index.scss';
 
-@mixin commonColor($color) {
+@mixin commonColor($color, $width: 1px) {
   @if $color== 'info' {
     $color: $--color-info;
   }
@@ -24,7 +24,7 @@
   }
 
   color: $color;
-  border: 1px solid $color;
+  border: $width solid $color;
 }
 
 @mixin commonType($name) {

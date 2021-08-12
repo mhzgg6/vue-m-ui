@@ -1,6 +1,7 @@
 <template>
   <div 
     class="mhz-message"
+    :style="currentStyle"
     >
     <div class="message-main" v-for="item in msgList" :key="item.name">
       <div class="message-content">
@@ -13,6 +14,17 @@
 
 <script>
 import mIcon from "../../../components/Icon/main/icon.vue"
+const POSITIN_STYLES = {
+  leftTop: 'top: 24px; left: 24px;',
+  leftCenter: 'top: 50%; left: 24px; transform: translateY(-50%);',
+  leftBottom: 'bottom: 24px; left: 24px;',
+  topCenter: 'top: 24px; left: 50%; transform: translateX(-50%);',
+  center: 'top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);',
+  bottomCenter: 'bottom: 24px; left: 50%; transform: translateX(-50%)',
+  rightTop: 'top: 24px; right: 24px;',
+  rightCenter: 'top: 50%; right: 24px; transform: translateY(-50%);',
+  rightBottom: 'bottom: 24px; right: 24px;',
+}
 
 let seed = 0;
 function getUuid() {
@@ -25,7 +37,8 @@ export default {
   components: { mIcon },
   data() {
     return {
-      msgList: []
+      msgList: [],
+      currentStyle: ''
     };
   },
   watch: {},
@@ -55,6 +68,7 @@ export default {
         name
       }, msg)
 
+      this.currentStyle = POSITIN_STYLES[msg.position];
       this.msgList.push(_msg);
 
       //  定时移除

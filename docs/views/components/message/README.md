@@ -10,4 +10,5 @@ title: 'Message 全局提示'
   | :------ | ------ | ------ | ------ | ------ |
   | content | 提示内容 | string | - | - |
   | duration | 自动关闭的延时，单位秒 | number | - | 3 |
+  | position | 弹框位置 | string | leftTop leftCenter leftBottom topCenter center bottomCenter rightTop rightCenter rightBottom | topCenter |
 </ClientOnly>

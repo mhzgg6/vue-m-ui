@@ -6,14 +6,15 @@ function getMessageInstance() {
   return MessageInstance;
 }
 
-function notice(type, { duration = 3, content = '' }) {
+function notice(type, { duration = 3, content = '', position = 'topCenter' }) {
   let instance = getMessageInstance();
 
   instance.add(
     type,
     {
       duration,
-      content
+      content,
+      position
     }
   )
 }

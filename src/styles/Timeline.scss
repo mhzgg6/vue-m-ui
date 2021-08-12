@@ -1,0 +1,113 @@
+@import './mixins/mixins.scss';
+@import './common/var.scss';
+
+@include b(timeline) {
+  box-sizing: border-box;
+  font-size: $--size-normal;
+  line-height: 1.5;
+
+  // mode: center
+  &.#{$namespace}-timeline-center {
+    @include b(timeline-item) {
+      &:nth-child(odd) {
+        @include b(timeline-item-content) {
+          left: calc(50% - 4px);
+          width: calc(50% - 16px);
+          text-align: left;
+        }
+      }
+      &:nth-child(even) {
+        @include b(timeline-item-content) {
+          width: calc(50% - 16px);
+          text-align: right;
+          right: 20px;
+        }
+      }
+
+      @include b(timeline-item-line) {
+        left: 50%;
+      }
+      @include b(timeline-item-icon) {
+        left: 50%;
+        margin-left: -6px;
+      }
+    }
+  }
+
+  // mode: right
+  &.#{$namespace}-timeline-right {
+    @include b(timeline-item) {
+      @include b(timeline-item-line) {
+        left: calc(100% - 8px);
+        background-color: red;
+      }
+      @include b(timeline-item-icon) {
+        left: calc(100% - 8px);
+        margin-left: -6px;
+      }
+      @include b(timeline-item-content) {
+        text-align: right;
+        margin: 0 20px 0 0;
+      }
+    }
+  }
+
+  @include b(timeline-item) {
+    position: relative;
+    padding: 0 0 20px;
+
+    &:last-child{
+      @include b(timeline-item-line) {
+        display: none;
+      }
+    }
+
+    @include b(timeline-item-line) {
+      position: absolute;
+      top: 14px;
+      left: 6px;
+      width: 2px;
+      height: calc(100% - 14px);
+      background-color: #e8e8e8;
+    }
+    @include b(timeline-item-icon) {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 100px;
+      @include commonColor($--color-info, 2px);
+      
+      &.#{$state-prefix}success {
+        @include commonColor($--color-success, 2px);
+      }
+
+      &.#{$state-prefix}warning {
+        @include commonColor($--color-warning, 2px);
+      }
+
+      &.#{$state-prefix}danger {
+        @include commonColor($--color-danger, 2px);
+      }
+
+      &.#{$state-prefix}slot{
+        border-color: transparent;
+        @include b(icon) {
+          position: absolute;
+          left: -4px;
+          top: -6px;
+          width: 16px !important;
+          height: 16px !important;
+          padding: 3px 1px;
+          line-height: 1;
+          text-align: center;
+        }
+      }
+    }
+    @include b(timeline-item-content) {
+      position: relative;
+      top: -6px;
+      margin: 0 0 0 20px;
+      word-break: break-word;
+    }
+  }
+}

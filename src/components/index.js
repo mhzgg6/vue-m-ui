@@ -1,6 +1,8 @@
 import mIcon from "./Icon/index"
 import mButton from "./Button/index"
 import mInput from './Input/index'
+import mForm from './Form/index'
+import mTimeline from './Timeline/index'
 import Message from "./Message/main/message"
 // import mMessage from "./Message/index"
 
@@ -14,9 +16,11 @@ const components = [
   mIcon,
   mButton,
   mInput,
+  mForm,
+  mTimeline
   // mMessage
 ]
-
+console.log(mForm);
 //  定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件 那么所有的组件都会被祖册
 const install = function (Vue) {
   //  判断是否安装
@@ -39,5 +43,7 @@ export default {
   mIcon,
   mButton,
   mInput,
+  mForm,
+  mTimeline
   // mMessage
 }

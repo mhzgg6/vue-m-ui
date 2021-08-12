@@ -4,8 +4,9 @@
 @include b(message) {
   position: fixed;
   // width: 100%;
-  top: 16px;
-  left: 0;
+  // top: 24px;
+  // left: 50%;
+  // transform: translateX(-50%);
   text-align: center;
   pointer-events: none;
   z-index: 99999;

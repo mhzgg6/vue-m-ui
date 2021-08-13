@@ -3,6 +3,7 @@ import mButton from "./Button/index"
 import mInput from './Input/index'
 import mForm from './Form/index'
 import mTimeline from './Timeline/index'
+import mSteps from './Step/index'
 import Message from "./Message/main/message"
 // import mMessage from "./Message/index"
 
@@ -17,7 +18,8 @@ const components = [
   mButton,
   mInput,
   mForm,
-  mTimeline
+  mTimeline,
+  mSteps
   // mMessage
 ]
 console.log(mForm);
@@ -44,6 +46,7 @@ export default {
   mButton,
   mInput,
   mForm,
-  mTimeline
+  mTimeline,
+  mSteps
   // mMessage
 }

@@ -1,0 +1,12 @@
+@import './mixins/mixins.scss';
+@import './common/var.scss';
+
+@include b(steps) {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+
+  @include b(step-item) {
+    flex: 1;
+  }
+}

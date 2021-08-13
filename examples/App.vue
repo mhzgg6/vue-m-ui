@@ -4,5 +4,9 @@
   </div>
 </template>
 
-<style lang="less">
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
 </style>

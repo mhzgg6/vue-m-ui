@@ -6,9 +6,28 @@
 <script>
 export default {
   name: "mSteps",
+  props: {
+    current: {
+      type: Number,
+      default: 0
+    },
+    status: {
+      type: String
+    }
+  },
+  provide() {
+    return {
+      steps: this
+    }
+  },
   data () {
     return {
     };
+  },
+  created() {
+  },
+  mounted() {
+    // console.log(this.$children);
   }
 }
 </script>

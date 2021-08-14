@@ -1,12 +1,144 @@
 @import './mixins/mixins.scss';
 @import './common/var.scss';
+@mixin commonBlock {
+  display: inline-block;
+  vertical-align: top;
+}
+$--color-line-color: rgba(0,0,0,.25);
+$--color-subtitle-color: rgba(0,0,0,.45);
+$--color-title-color: rgba(0,0,0,.65);
+$--color-active-color: rgba(0,0,0,.85);
+
 
 @include b(steps) {
   box-sizing: border-box;
   width: 100%;
+  color: $--color-title-color;
   display: flex;
+
+  // @include b(step-item-finish) {
+  //   @include b(step-item-container) {
+  //     @include b(step-item-icon) {
+  //       color: $--color-info;
+  //       border-color: $--color-info !important;
+  //     }
+  //   }
+  // }
 
   @include b(step-item) {
     flex: 1;
+    margin-right: 20px;
+    overflow: hidden;
+    &:last-child{
+      margin: 0;
+      flex: none;
+      @include b(step-item-title) {
+        &:after{
+          display: none !important;
+        }
+      }
+    }
+
+    @include b(step-item-container) {
+      @include b(step-item-icon) {
+        @include commonBlock();
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        line-height: 32px;
+        font-size: 16px;
+        margin-right: 8px;
+        border-radius: 32px;
+        border: 1px solid $--color-line-color;
+      }
+      @include b(step-item-content) {
+        @include commonBlock();
+
+        @include b(step-item-title) {
+          position: relative;
+          display: inline-block;
+          font-size: 16px;
+          line-height: 32px;
+          padding-right: 16px;
+          color: $--color-title-color;
+          &:after{
+            position: absolute;
+            top: 16px;
+            left: 100%;
+            display: block;
+            width: 9999px;
+            height: 1px;
+            background: #e8e8e8;
+            content: "";
+          }
+
+          @include b(step-item-subtitle) {
+            display: inline-block;
+            font-size: 14px;
+            margin-left: 8px;
+            color: $--color-subtitle-color;
+          }
+        }
+
+        @include b(step-item-description) {
+          font-size: 14px;
+          max-width: 140px;
+          white-space: normal;
+          color: $--color-subtitle-color;
+        }
+        
+      }
+    }
+  }
+
+  //  不同状态
+  @include b(step-item-finish) {
+    @include b(step-item-container) {
+      @include b(step-item-icon) {
+        @include commonColor(info);
+        background-color: #fff;
+      }
+
+      @include b(step-item-content) {
+        @include b(step-item-title) {
+          &:after{
+            background: $--color-info;
+          }
+        }
+      }
+    }
+  }
+
+  @include b(step-item-active) {
+    @include b(step-item-container) {
+      @include b(step-item-icon) {
+        background-color: $--color-info;
+        border: 1px solid $--color-info;
+        color: #fff;
+      }
+      
+      @include b(step-item-content) {
+        @include b(step-item-title) {
+          font-weight: 500;
+          color: $--color-active-color;
+          @include b(step-item-subtitle) {
+            color: $--color-title-color;
+          }
+        }
+        @include b(step-item-description) {
+          color: $--color-title-color;
+        }
+      }
+    }
+  }
+
+  @include b(step-item-wait) {
+    @include b(step-item-container) {
+      @include b(step-item-icon) {
+        background-color: #fff;
+        color: $--color-line-color;
+        border: 1px solid $--color-line-color;
+      }
+    }
   }
 }

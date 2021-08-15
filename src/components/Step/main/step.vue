@@ -1,26 +1,38 @@
 <template>
   <div 
-    :class="classStatus"
+    :class="[
+      'mhz-step-item-' + currentStatus
+    ]"
     class="mhz-step-item"
     >
     <div class="mhz-step-item-container">
-      <div class="mhz-step-item-icon">
-        <span v-if="steps.current <= stepNumber">
-          {{stepNumber + 1}}
-        </span>
-        <template v-if="stepNumber < steps.current">
-          <m-icon name="gou" color="#409EFF"></m-icon>
+
+      <div class="mhz-step-item-icon" :class="{ 'is-icon': $slots.icon }">
+        <slot v-if="$slots.icon" name="icon" color="ICON_COLORS[currentStatus]">
+        </slot>
+        <template v-else>
+          <span v-if="steps.current <= stepNumber">
+            {{ stepNumber + 1 }}
+          </span>
+          <template v-if="stepNumber < steps.current">
+            <m-icon name="gou" color="#409EFF"></m-icon>
+          </template>
         </template>
-        <!-- <slot name="icon"></slot> -->
       </div>
+
       <div class="mhz-step-item-content">
-        <div class="mhz-step-item-title">
+        <!-- title -->
+        <div class="mhz-step-item-title" v-if="showTitle">
+          {{ title }}
           <slot name="title"></slot>
-          <div class="mhz-step-item-subtitle">
+          <div class="mhz-step-item-subtitle" v-if="showSubtitle">
+            {{ subtitle }}
             <slot name="sub-title"></slot>
           </div>
         </div>
-        <div class="mhz-step-item-description">
+        <!-- decription -->
+        <div class="mhz-step-item-description" v-if="showDescription">
+          {{ description }}
           <slot name="description"></slot>
         </div>
       </div>
@@ -29,11 +41,22 @@
 </template>
 <script>
 import mIcon from '../../Icon/main/icon.vue'
+
 export default {
   name: "mStep",
   inject: ['steps'],
+  props: {
+    title: String,
+    subtitle: String,
+    description: String
+  },
   data () {
     return {
+      ICON_COLORS : {
+        finish: '#409EFF',
+        active: '#409EFF',
+        wait: 'rbga(0,0,0,.45)'
+      }
     };
   },
   components: { mIcon }, 
@@ -49,29 +72,34 @@ export default {
       })
       return curIndex
     },
-    classStatus() {
+    currentStatus() {
       let activeIndex = this.steps.current;
-      console.log(activeIndex);
       if (activeIndex < this.stepNumber) {
-        return 'mhz-step-item-wait'
+        return 'wait'
       } else if (activeIndex === this.stepNumber) {
-        return 'mhz-step-item-active'
+        return 'active'
       } else {
-        return 'mhz-step-item-finish'
+        return 'finish'
       }
+    },
+    showTitle() {
+      return this.$slots.title || this.title
+        ? true
+        : false
+    },
+    showSubtitle() {
+      return this.$slots['sub-title'] || this.subtitle
+        ? true
+        : false
+    },
+    showDescription() {
+      return this.$slots.description || this.description
+        ? true
+        : false
     }
   },
   created() {
-    // console.log(this.steps.$children[0]._uid);
-    // console.log(this._uid);
-    // this.steps.$slots.default.forEach((component, index) => {
-    //   if (component._uid === this._uid) {
-
-    //     console.log(index);
-    //   }
-    // })
-    // console.log(this.steps.$slots);
-    // console.log(this._uid);
+    console.log(this.$slots);
   },
   mounted() {
   }

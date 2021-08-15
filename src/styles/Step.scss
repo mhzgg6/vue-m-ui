@@ -50,6 +50,15 @@ $--color-active-color: rgba(0,0,0,.85);
         margin-right: 8px;
         border-radius: 32px;
         border: 1px solid $--color-line-color;
+        transition: background-color .3s,border-color .3s;
+
+        &.is-icon{
+          border: none;
+          >.mhz-icon{
+            width: 1.5em !important;
+            height: 1.5em !important;
+          }
+        }
       }
       @include b(step-item-content) {
         @include commonBlock();
@@ -115,6 +124,9 @@ $--color-active-color: rgba(0,0,0,.85);
         background-color: $--color-info;
         border: 1px solid $--color-info;
         color: #fff;
+        &.is-icon{
+          background-color: #fff;
+        }
       }
       
       @include b(step-item-content) {

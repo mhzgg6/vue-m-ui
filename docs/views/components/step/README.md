@@ -12,6 +12,8 @@ title: 'Step 步骤条'
   <font size=5>Step</font>
   | 参数| 说明 | 类型 | 可选值 | 默认值 |
   | :------ | ------ | ------ | ------ | ------ |
+  | title | 标题 | string slot | - | - |
+  | sub-title | 副标题 | string slot | - | - |
   | description | 步骤的详情描述，可选 | string slot | - | - |
   | icon | 步骤图标的类型，可选 | string slot | - | - |
 </ClientOnly>

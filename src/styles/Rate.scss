@@ -1,0 +1,33 @@
+@import './mixins/mixins.scss';
+@import './common/var.scss';
+
+@include b(rate) {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 20px;
+
+  @include b(rate-item) {
+    display: inline-block;
+    
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+    
+    @include b(rate-item-container) {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+
+      @include b(rate-up-star) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

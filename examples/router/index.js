@@ -24,6 +24,11 @@ const routes = [
     path: '/timeline',
     name: 'Timeline',
     component: () => import(/* webpackChunkName: "about" */ '../views/TimeLine.vue')
+  },
+  {
+    path: '/rate',
+    name: 'Rate',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Rate.vue')
   }
 ]
 

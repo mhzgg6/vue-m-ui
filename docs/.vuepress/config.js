@@ -29,6 +29,7 @@ module.exports = {
           'views/components/message/',
           'views/components/timeline/',
           'views/components/step/',
+          'views/components/rate/',
           'views/components/todo/',
         ]
       },
